@@ -1,4 +1,4 @@
-<div class="card-deck">
+<!--<div class="card-deck">
     <div class="card" *ngFor="let ins of instrumentosArr; let i = index" style="max-width: 25%; padding: 10px;">
         <img class="card-img-top" src="assets/images/{{ins.imagen}}" alt="Card image cap"
             style="max-height: 150px;">
@@ -9,6 +9,33 @@
         </div>
         <div class="card-footer" style="text-align: center;">
             <button (click)="verInstrumento(ins.id)" class="btn btn-primary" style="width: 90%;">Detalle</button>
+        </div>
+    </div>
+</div> -->
+
+<div style="padding-left: 30%; padding-right: 30%; padding-top:1%; padding-bottom: 1%;" *ngFor="let ins of instrumentosArr; let i = index">
+    <div class="row">
+        <div class="col" align="center" justify="center">
+            <br>
+            <h6>{{ ins.cantidadVendida }} vendidos</h6>
+
+            <button (click)="verInstrumento(ins.id)" style="padding: 0; border: none; background: none;">
+
+                <img src="assets/images/{{ins.imagen}}" style="max-width: 160px;" />
+            </button>
+            <br /><br />
+        </div>
+        <div class="col" cols="6">
+            <br />
+            <h5>{{ ins.instrumento }}</h5>
+            <h4>$ {{ ins.precio }}</h4>
+            <span v-if="ins.costoEnvio === 'G'">
+                <h6> <img src='assets/images/camion.png' alt='camion' />Envío gratis a todo el país</h6>
+            </span>
+            <span v-else>
+                <p><img src='assets/images/camion.png' alt='camion' />Costo de envío: ${{ ins.costoEnvio }}</p>
+            </span>
+
         </div>
     </div>
 </div>
